@@ -1,0 +1,17 @@
+pub mod auth;
+pub mod avatar;
+pub mod avatar_moderation;
+pub mod favorite;
+pub mod file;
+pub mod friend;
+pub mod group;
+pub mod instance;
+pub mod inventory;
+pub mod invite_messages;
+pub mod misc;
+pub mod notification;
+pub mod player_moderation;
+pub mod print;
+pub mod prop;
+pub mod user;
+pub mod world;

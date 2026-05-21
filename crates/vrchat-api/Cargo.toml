@@ -1,0 +1,19 @@
+[package]
+name = "vrchat-api"
+version = "0.1.0"
+edition = "2021"
+description = "VRChat API client library (generated from VRCX)"
+license = "MIT"
+repository = "https://github.com/PERSON1203/VRCX"
+keywords = ["vrchat", "api", "vr", "client"]
+categories = ["api-bindings", "web-programming::http-client"]
+
+[dependencies]
+reqwest = { version = "0.12", features = ["json", "cookies"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+url = "2"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
