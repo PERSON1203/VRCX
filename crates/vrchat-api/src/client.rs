@@ -191,3 +191,41 @@ impl Default for VRChatClient {
         Self::new().expect("failed to build VRChatClient")
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn new_builds_without_error() {
+        VRChatClient::new().expect("VRChatClient::new should succeed");
+    }
+
+    #[test]
+    fn default_builds_without_error() {
+        let _client = VRChatClient::default();
+    }
+
+    #[test]
+    fn with_base_url_stores_url() {
+        let client = VRChatClient::with_base_url("http://localhost:12345").unwrap();
+        assert_eq!(client.base_url, "http://localhost:12345");
+    }
+
+    #[test]
+    fn url_joins_correctly() {
+        let client = VRChatClient::with_base_url("https://api.example.com/api/1").unwrap();
+        assert_eq!(client.url("config"), "https://api.example.com/api/1/config");
+        assert_eq!(
+            client.url("users/usr_abc"),
+            "https://api.example.com/api/1/users/usr_abc"
+        );
+    }
+
+    #[test]
+    fn clone_preserves_base_url() {
+        let client = VRChatClient::with_base_url("http://test.local").unwrap();
+        let cloned = client.clone();
+        assert_eq!(client.base_url, cloned.base_url);
+    }
+}
