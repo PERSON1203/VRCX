@@ -167,6 +167,10 @@ pub struct CalendarEvent {
     pub is_public: bool,
     pub visibility: String,
     pub is_following: Option<bool>,
+    pub duration_in_ms: Option<u64>,
+    pub occurrence_kind: Option<String>,
+    pub recurrence: Option<String>,
+    pub series_id: Option<String>,
     #[serde(flatten)]
     pub extra: std::collections::HashMap<String, Value>,
 }
