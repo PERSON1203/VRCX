@@ -76,6 +76,7 @@ pub struct SearchGroupMembersParams {
 pub struct UpdateGroupMemberParams {
     pub visibility: Option<String>,
     pub is_subscribed_to_announcements: Option<bool>,
+    pub is_subscribed_to_event_announcements: Option<bool>,
     pub manager_notes: Option<String>,
 }
 
